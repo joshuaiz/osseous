@@ -1,0 +1,494 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants. I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+******************************************************************/
+
+/*********************
+CLEARFIXIN'
+*********************/
+
+// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+.clearfix {
+  zoom: 1;
+	&:before, &:after { content: ""; display: table; }
+	&:after { clear: both; }
+}
+
+/*********************
+TOOLS
+*********************/
+
+/* BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/) */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+}
+
+/* http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+.image-replacement {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+
+$alert-yellow:      #ebe16f;
+$alert-red:         #fbe3e4;
+$alert-green:       #e6efc2;
+$alert-blue:        #d5edf8;
+
+$black:             #000;
+$white:             #fff;
+
+/*	[added by JM]
+	Gray or Grey?
+	http://grammarist.com/spelling/gray-grey/
+	We're international, baby.
+*/
+
+$light-grey:  		#d3d3d3;
+$medium-grey:		#c0c0c0;
+$grey:				#bebebe;
+$dark-grey:			#a9a9a9;
+$dimgrey:			#696969;
+
+$bones-pink:        #f01d4f;
+$bones-blue:        #1990db;
+
+$osseous-blue:		#0088cc; // [added by JM] This is Apple's link color and I like it as a default.
+
+$link-color:        $osseous-blue;
+$link-hover:        darken($link-color, 9%);
+
+/*	[added by JM]
+	Flat-UI colors
+	http://flatuicolors.com/
+	http://designmodo.github.io/Flat-UI/
+*/
+
+$turquoise:			#1abc9c;
+$greensea:			#16a085;
+$emerald:			#2ecc71;
+$nephritis:			#27ae60;
+$peterriver:		#3498db;
+$belizehole:		#2980b9;
+$amethyst:			#9b59b6;
+$wisteria:			#8e44ad;
+$wetasphalt:		#34495e;
+$midnightblue:		#2c3e50;
+$sunflower:			#f1c40f;
+$flatorange:		#f39c12; // name changed because of $orange below
+$carrot:			#e67e22;
+$pumpkin:			#d35400;
+$alizarin:			#e74c3c;
+$pomegranate:		#c0392b;
+$clouds:			#ecf0f1;
+$concrete:			#95a5a6;
+$asbestos:			#7f8c8d;
+
+/*	[added by JM]
+	Want to pick your own colors?
+	Try this: http://richbray.me/cms/
+	This site is also good:
+	http://www.december.com/html/spec/color.html
+	As Eddie says, don't overdo it - use only
+	what you need and delete the rest.
+	Here's some colors to get you started:
+*/
+
+$red:				#D42C2C;
+$peach:				#FF5050;
+$tan:				#FFCC99;
+$orange:			#FF6600;
+$amber:				#FF9900;
+$bark:				#FFB448;
+$yellow:			#FFCC00;
+$jasmine:			#f8de7e;
+$lime:				#B8E62E;
+$green:				#33CC33;
+$darkgreen:			#0F3D0F;
+$mint:				#3eb489;
+$blue:				#0066FF;
+$lightblue:			#4D94FF;
+$darkblue:			#002966;
+$cyan:				#36a0ca;
+$sapphire:			#2c405b;
+$purple:			#9966FF;
+$magenta:			#ff0090;
+$plum:				#8e4585;
+$blossom:			#8A7AA2;
+$pink:				#FF33CC;
+$coral:				#f88379;
+$rose:				#f64a8a;
+$ruby:				#e0115f;
+$salmon:			#ff91a4;
+$bronze:			#EDBC91;
+$brown:				#663300;
+$darkbrown:			#472400;
+$lightbrown:		#855C33;
+$coffee:			#6f4e37;
+$copper:			#b87333;
+$sepia:				#704214;
+$clay:				#D7C3B8;
+$antique:			#faebd7;
+$navajo:			#ffdead;
+$pearl:				#eae0c8;
+$vanilla:			#f3e5ab;
+$ash:				#b2beb5;
+$battleship:		#848482;
+$charcoal:			#36454f;
+$gunmetal:			#423732;
+$slate:				#708090;
+$taupe:				#8b8589;
+
+/*
+	Here's a great tutorial on how to
+	use color variables properly:
+	http://sachagreif.com/sass-color-variables/
+*/
+
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+/*	[added by JM]
+	Select better font stacks:
+	http://cssfontstack.com
+*/
+
+$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+$lucida:			"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif; // Added
+
+
+/* 	To embed your own fonts, use this syntax
+	and place your fonts inside the
+	library/fonts folder. For more information
+	on embedding fonts, go to:
+	http://www.fontsquirrel.com/
+	Be sure to remove the comment brackets.
+*/
+
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('library/fonts/font-name.eot');
+    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('library/fonts/font-name.woff') format('woff'),
+             url('library/fonts/font-name.ttf') format('truetype'),
+             url('library/fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+
+/*	[added by JM]
+	If you're having trouble getting your @font-face fonts working,
+	first try placing your font files in the css folder without the
+	relative urls below. Then, once you know they are embedded properly,
+	move the files to the /fonts folder and then adjust your urls accordingly.
+	Note that the /library/fonts/ folder is *not* included by default
+	with Bones but I've included it.
+*/
+
+/*
+use the best ampersand
+http://simplebits.com/notebook/2008/08/14/ampersands-2/
+*/
+span.amp {
+  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
+  font-style: italic;
+}
+
+// text alignment
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+
+// alerts and notices
+%alert {
+	margin: 10px;
+	padding: 5px 18px;
+	border: 1px solid;
+}
+
+.alert-help {
+	@extend %alert;
+	border-color: darken($alert-yellow, 5%);
+	background: $alert-yellow;
+}
+
+.alert-info {
+	@extend %alert;
+	border-color: darken($alert-blue, 5%);
+	background: $alert-blue;
+}
+
+.alert-error {
+	@extend %alert;
+	border-color: darken($alert-red, 5%);
+	background: $alert-red;
+}
+
+.alert-success {
+	@extend %alert;
+	border-color: darken($alert-green, 5%);
+	background: $alert-green;
+}
+
+/*********************
+LISTS [added by JM]
+*********************/
+
+/*	[added by JM]
+	It's the List-Style:
+	http://css-tricks.com/almanac/properties/l/list-style/
+*/
+
+.no-style {
+	list-style: none outside none;
+	padding: 0;
+	margin: 0;
+}
+
+.list-square {
+	list-style: square outside none;
+}
+
+.list-circle {
+	list-style: circle outside none;
+}
+
+/*********************
+PLACEHOLDER TEXT [added by JM]
+*********************/
+
+::-webkit-input-placeholder {
+   color: #aaa;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #aaa;
+   opacity: 1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #aaa;
+   opacity: 1;
+}
+
+:-ms-input-placeholder {  
+   color: #aaa;
+}
+
+:focus::-webkit-input-placeholder {
+     transition: opacity 0.3s 0.3s ease; opacity: 0; 
+}
+
+input:focus::-moz-placeholder {
+     opacity: 0; // Placeholder transitions don't work with FF (only webkit)
+}
+
+input:focus:-moz-placeholder {
+     opacity: 0; // Placeholder transitions don't work with FF (only webkit)
+}
+
+:focus:-ms-input-placeholder { transition: opacity 0.5s 0.5s ease; opacity: 0;
+}
+
+/*********************
+RETINA JS MIXIN [added by JM]
+*********************/
+
+/* Use this for retina background images */
+
+@mixin at2x($image_name, $w: auto, $h: auto, $extention: '.png') {
+  background-image: image_url($image_name + $extention);
+  $x2img : $image_name + '@2x' + $extention;
+
+  @media all and (-webkit-min-device-pixel-ratio : 1.5) {
+    background-image: image_url($x2img);
+    background-size: $w $h;
+  }  
+}
+
+/* Usage
+
+#logo {
+	@include at2x('example', 200px, 100px, .jpg);
+} 
+
+    Will compile to: 
+
+            #logo {
+              background-image: url('/images/example.jpg');
+            }
+
+            @media all and (-webkit-min-device-pixel-ratio: 1.5) {
+              #logo {
+                background-image: url('/images/exampe@2x.jpg');
+                background-size: 200px 100px;
+              }
+            }
+*/
+
+/*********************
+TRANSITION
+*********************/
+
+/*
+I totally rewrote this to be cleaner and easier to use.
+You'll need to be using Sass 3.2+ for these to work.
+Thanks to @anthonyshort for the inspiration on these.
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+
+@mixin transition($transition...) {
+	// defining prefixes so we can use them in mixins below
+	$prefixes:      ("-webkit",  "-moz"); // Added -moz
+  @each $prefix in $prefixes {
+    #{$prefix}-transition: $transition;
+  }
+
+  transition: $transition;
+}
+
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/*********************
+BOX SIZING
+*********************/
+
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	-ms-box-sizing:     $type;
+	box-sizing:         $type;
+}
+
+
+/*********************
+BUTTONS
+*********************/
+
+/*	[added by JM]
+	These are flat blue buttons. Uncomment the gradient and text-shadow bits 
+	to give them a little depth. Original Bones buttons commented out below.
+*/	
+
+.button, .button:visited {
+	font-family: $lucida;
+	border: 0;
+	padding: 4px 12px;
+	color: $white;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: normal;
+	text-decoration: none;
+	/* text-shadow: 0 1px rgba(0,0,0, .75); */
+	cursor: pointer;
+	margin-bottom: 20px;
+	line-height: 21px;
+	border-radius: 2px;
+	background: $link-color;
+	/* @include css-gradient($link-color, darken($link-color, 5%)); */
+	&:hover, &:focus {
+		color: $white;
+	  	border: 0;
+	  	background: darken($link-color, 8%);
+		/* @include css-gradient(darken($link-color, 5%), darken($link-color, 10%)); */
+	}
+
+	&:active {
+		background: darken($link-color, 8%);
+		/* @include css-gradient(darken($link-color, 5%), $link-color); */
+	}
+}
+
+
+
+/*
+.button, .button:visited {
+	font-family: $sans-serif;
+	border: 1px solid darken($link-color, 13%);
+	border-top-color: darken($link-color, 7%);
+	border-left-color: darken($link-color, 7%);
+	padding: 4px 12px;
+	color: $white;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0 1px rgba(0,0,0, .75);
+	cursor: pointer;
+	margin-bottom: 20px;
+	line-height: 21px;
+	border-radius: 4px;
+	@include css-gradient($link-color, darken($link-color, 5%));
+
+
+	&:hover, &:focus {
+		color: $white;
+	  	border: 1px solid darken($link-color, 13%);
+	  	border-top-color: darken($link-color, 20%);
+	 	border-left-color: darken($link-color, 20%);
+		@include css-gradient(darken($link-color, 5%), darken($link-color, 10%));
+	}
+
+	&:active {
+		@include css-gradient(darken($link-color, 5%), $link-color);
+	}
+}
+
+.blue-button, .blue-button:visited {
+	border-color: darken($bones-blue, 10%);
+	text-shadow: 0 1px 1px darken($bones-blue, 10%);
+	@include css-gradient( $bones-blue, darken($bones-blue, 5%) );
+	box-shadow: inset 0 0 3px lighten($bones-blue, 16%);
+
+	&:hover, &:focus {
+		border-color: darken($bones-blue, 15%);
+		@include css-gradient( darken($bones-blue, 4%), darken($bones-blue, 10%) );
+	}
+	&:active {
+		@include css-gradient( darken($bones-blue, 5%), $bones-blue );
+	}
+}
+*/
